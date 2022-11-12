@@ -97,13 +97,13 @@ plt.show()
 
 # %%
 # Plot google trends over time
-sns.set(rc={"figure.figsize":(14, 4)})
+# sns.set(rc={"figure.figsize":(14, 4)})
 
-sns.lineplot(data=google_trends, x='date', y='keyword')
-plt.xlabel('Date')
-plt.ylabel(str(kw_list))
-# plt.savefig("google_trend_plot.jpg", dpi=360, bbox_inches='tight')
-plt.show()
+# sns.lineplot(data=google_trends, x='date', y='keyword')
+# plt.xlabel('Date')
+# plt.ylabel(str(kw_list))
+# # plt.savefig("google_trend_plot.jpg", dpi=360, bbox_inches='tight')
+# plt.show()
 
 # %%
 # Save Google Trends file
@@ -118,54 +118,54 @@ google_trends.to_csv((kw_list[0]) + '_'+ d1+'.csv')
 
 # %%
 # Get Google Keyword Suggestions
-pytrend = TrendReq()
-# it's not going to take any other language as EN is hardcoded
-keywords = pytrend.suggestions(keyword='Pimalai Resort & Spa')
-df = pd.DataFrame(keywords)
-df.head(10)
+# pytrend = TrendReq()
+# # it's not going to take any other language as EN is hardcoded
+# keywords = pytrend.suggestions(keyword='Pimalai Resort & Spa')
+# df = pd.DataFrame(keywords)
+# df.head(10)
 
-# %% [markdown]
-# ### Dummy Variables
+# # %% [markdown]
+# # ### Dummy Variables
 
-# %% [markdown]
-# #### Federal Holidays
+# # %% [markdown]
+# # #### Federal Holidays
 
-# %%
-google_trends
-google_trends.head()
+# # %%
+# google_trends
+# google_trends.head()
 
-# %%
-cal = calendar()
-holidays = cal.holidays(start = google_trends['date'].min(), end = google_trends['date'].max())
-google_trends['holiday'] = google_trends['date'].isin(holidays)
-google_trends['holiday'] = google_trends['holiday'].apply(lambda x: 1 if x == True else 0)
-google_trends.head()
+# # %%
+# cal = calendar()
+# holidays = cal.holidays(start = google_trends['date'].min(), end = google_trends['date'].max())
+# google_trends['holiday'] = google_trends['date'].isin(holidays)
+# google_trends['holiday'] = google_trends['holiday'].apply(lambda x: 1 if x == True else 0)
+# google_trends.head()
 
-# %% [markdown]
-# #### Day of the Week
+# # %% [markdown]
+# # #### Day of the Week
 
-# %%
-# Getting the day of the week
-google_trends['d'] = google_trends['date'].dt.dayofweek
+# # %%
+# # Getting the day of the week
+# google_trends['d'] = google_trends['date'].dt.dayofweek
 
-# Creating is_weekday variable
-google_trends['is_weekday'] = google_trends['d'].apply(lambda x: 1 if x != 5 and x !=6 else 0)
+# # Creating is_weekday variable
+# google_trends['is_weekday'] = google_trends['d'].apply(lambda x: 1 if x != 5 and x !=6 else 0)
 
-# Creating is_weekend variable
-google_trends['is_weekend'] = google_trends['d'].apply(lambda x: 1 if x == 5 or x == 6 else 0)
-google_trends.head()
+# # Creating is_weekend variable
+# google_trends['is_weekend'] = google_trends['d'].apply(lambda x: 1 if x == 5 or x == 6 else 0)
+# google_trends.head()
 
-# %%
-google_trends['d'] = google_trends['d'].apply(lambda x: 'Monday' if x == 0 else
-                              'Tuesday' if x == 1 else
-                              'wednesday' if x == 2 else
-                              'thursday' if x == 3 else
-                              'friday' if x == 4 else
-                              'saturday' if x == 5 else
-                              'sunday' if x == 6
-                    else x)
+# # %%
+# google_trends['d'] = google_trends['d'].apply(lambda x: 'Monday' if x == 0 else
+#                               'Tuesday' if x == 1 else
+#                               'wednesday' if x == 2 else
+#                               'thursday' if x == 3 else
+#                               'friday' if x == 4 else
+#                               'saturday' if x == 5 else
+#                               'sunday' if x == 6
+#                     else x)
 
-# %%
+# # %%
 google_trends
 
 
