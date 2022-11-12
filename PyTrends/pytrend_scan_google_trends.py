@@ -1,41 +1,57 @@
-# %% [markdown]
 
-# #### 1. Install PyTrends
 
-# %%
 ## install  the libs
 # !pip install pytrends
 # !pip install statsmodels user
 # !pip install seaborn
 
-
+from time import sleep
+from tqdm import tqdm
+# note: tqdm is a progress bar library
+# note need to give pytrends a break, otherwise it will get blocked 
+# TODO set the time between as a user input
+for _ in tqdm(range(1)):
+    sleep(1)
 
 # %%
 import pytrends
 from pytrends.request import TrendReq
 import pandas as pd
-from pandas.tseries.holiday import USFederalHolidayCalendar as calendar
+# from pandas.tseries.holiday import USFederalHolidayCalendar as calendar
 import numpy as np
 import datetime as dt
 from datetime import date
-from statsmodels.tsa.seasonal import seasonal_decompose
+# from statsmodels.tsa.seasonal import seasonal_decompose
 import seaborn as sns
 import matplotlib.pyplot as plt
-
 import warnings
+# time the script run time
+import time
+# set variable for start time of the script
+startTime = time.time()
+
+
+
+
 
 # Notebook settings
 warnings.filterwarnings("ignore")
 pd.set_option('display.max_rows', None)
+# TODO figuure out how to override the defaults here
 pytrends = TrendReq(hl='en_US', tz=360)
-# sns.set_theme()
 
-# %%
-# kw_list = ['Pimalai Resort & Spa']
+# open csv file with the keywords
+read_csv_file = pd.read_csv(r'C:/Users/denni/OneDrive/Documents/PyTrends/PyTrends/search_terms.csv')
+# loop through the csv file and get the first row of data
+for i in range(len(read_csv_file)):
+    print(read_csv_file.loc[i, "search_terms"])
 
+#TODO pass the search terms to the kw_list variable
+kw_list = ["search_terms"]
 
+# TODO I can't change this value! If I do I get an error!
+# kw_list = ['Intercontinental Phuket']
 
-kw_list = ['Intercontinental Phuket']
 frequency = 'daily' # must be  hourly or daily
 # for whatever reason, I can't get a different Geo to work e.g. CZ
 geo = 'US'
@@ -49,8 +65,8 @@ hour_start=0
 
 # Select End Date
 year_end=2022
-month_end=11
-day_end=19
+month_end=12
+day_end=31
 hour_end=0
 
 # Run PyTrends
@@ -77,93 +93,39 @@ pd.to_datetime(google_trends['date'])
 # show the top 5 rows (sanity check)
 google_trends.head()
 
-# %%
-# Plot google trends over time
+# set day variable
 today = date.today()
 # create a date object
 d1 = today.strftime("%Y_%m_%d")
 
+# seaborn graph settings
 sns.set(rc={"figure.figsize":(14, 6)})
-
 sns.lineplot(data=google_trends, x='date', y='keyword')
+
 plt.xlabel('Date', fontsize = 18)
 plt.ylabel(str(kw_list), fontsize = 18)
 plt.xticks(fontsize = 16)
 plt.yticks(fontsize = 16)
 plt.savefig(str(kw_list) +'_' +'_' + d1 +'_'+ "google_trend_plot.png", dpi=360, bbox_inches='tight')
-plt.show()
-
-# %%
-# Plot google trends over time
-# sns.set(rc={"figure.figsize":(14, 4)})
-
-# sns.lineplot(data=google_trends, x='date', y='keyword')
-# plt.xlabel('Date')
-# plt.ylabel(str(kw_list))
-# # plt.savefig("google_trend_plot.jpg", dpi=360, bbox_inches='tight')
+# uncomment to show the plot
 # plt.show()
 
-# %%
-# Save Google Trends file
-today = date.today()
-# create a date object
-d1 = today.strftime("%Y_%m_%d")
+
+# today = date.today()
+# # create a date object
+# d1 = today.strftime("%Y_%m_%d")
 # google_trends.to_csv('google_trends_'+ kw_list[0]+'_'+ d1+'.csv')
+
+# write search results to csv
 google_trends.to_csv((kw_list[0]) + '_'+ d1+'.csv')
 
-# %% [markdown]
-# ### Google Trends Keywords Suggestion
 
-# %%
-# Get Google Keyword Suggestions
-# pytrend = TrendReq()
-# # it's not going to take any other language as EN is hardcoded
-# keywords = pytrend.suggestions(keyword='Pimalai Resort & Spa')
-# df = pd.DataFrame(keywords)
-# df.head(10)
+# print user script is complete
+print('User script is complete')
 
-# # %% [markdown]
-# # ### Dummy Variables
+# print location of the files
+print('Google Trends file saved to: ' + str(kw_list[0]) + '_'+ d1+'.csv')
+executionTime = (time.time() - startTime)
+print('Execution time in seconds: ' + str(executionTime))
 
-# # %% [markdown]
-# # #### Federal Holidays
-
-# # %%
-# google_trends
-# google_trends.head()
-
-# # %%
-# cal = calendar()
-# holidays = cal.holidays(start = google_trends['date'].min(), end = google_trends['date'].max())
-# google_trends['holiday'] = google_trends['date'].isin(holidays)
-# google_trends['holiday'] = google_trends['holiday'].apply(lambda x: 1 if x == True else 0)
-# google_trends.head()
-
-# # %% [markdown]
-# # #### Day of the Week
-
-# # %%
-# # Getting the day of the week
-# google_trends['d'] = google_trends['date'].dt.dayofweek
-
-# # Creating is_weekday variable
-# google_trends['is_weekday'] = google_trends['d'].apply(lambda x: 1 if x != 5 and x !=6 else 0)
-
-# # Creating is_weekend variable
-# google_trends['is_weekend'] = google_trends['d'].apply(lambda x: 1 if x == 5 or x == 6 else 0)
-# google_trends.head()
-
-# # %%
-# google_trends['d'] = google_trends['d'].apply(lambda x: 'Monday' if x == 0 else
-#                               'Tuesday' if x == 1 else
-#                               'wednesday' if x == 2 else
-#                               'thursday' if x == 3 else
-#                               'friday' if x == 4 else
-#                               'saturday' if x == 5 else
-#                               'sunday' if x == 6
-#                     else x)
-
-# # %%
 google_trends
-
-
