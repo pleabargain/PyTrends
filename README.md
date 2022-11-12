@@ -1,5 +1,8 @@
 # PyTrends
 
+# URL for this repo
+https://github.com/pleabargain/PyTrends
+
 # graph
 https://drive.google.com/file/d/13wUeT3ZHQvngwHiQMOKoPEb5WjIF8Fmm/view?usp=sharing
 
