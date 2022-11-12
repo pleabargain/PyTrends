@@ -1,7 +1,5 @@
 # %% [markdown]
-# ### Google Trends
 
-# %% [markdown]
 # #### 1. Install PyTrends
 
 # %%
@@ -13,12 +11,13 @@
 
 
 # %%
+import pytrends
+from pytrends.request import TrendReq
 import pandas as pd
 from pandas.tseries.holiday import USFederalHolidayCalendar as calendar
 import numpy as np
 import datetime as dt
 from datetime import date
-from pytrends.request import TrendReq
 from statsmodels.tsa.seasonal import seasonal_decompose
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -31,11 +30,10 @@ pd.set_option('display.max_rows', None)
 pytrends = TrendReq(hl='en_US', tz=360)
 # sns.set_theme()
 
-# %% [markdown]
-# #### Retrieve Google Trends Data
-
 # %%
 # kw_list = ['Pimalai Resort & Spa']
+
+
 
 kw_list = ['Intercontinental Phuket']
 frequency = 'daily' # must be  hourly or daily
