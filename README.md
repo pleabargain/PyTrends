@@ -8,12 +8,26 @@ You want to know how many times that X is mentioned is mentioned in regions A, B
 
 You want to know how many times that X is mentioned is mentioned in language F, G, H
 
+Generate a graph showing this search trend.
+
 # use case two
 Your client, LittleCo, wants to know if their WidgetWonder is being searched in region A, B, C so they can retarget their ad campaigns.
+
+Generate a graph showing this search trend.
 
 # use case three
 Your client, SuperCo, wants to know how often their industry, BasketWeaving, is being searched in languages F, G and H.
 
+Generate a graph showing this search trend.
+
+# use case four
+Create a dashboard showing search trends over a time series by region.
+
+# use case five
+?
+
+# use case six
+Profit!!!
 
 # URL for this repo
 https://github.com/pleabargain/PyTrends
