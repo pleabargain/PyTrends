@@ -1,5 +1,19 @@
 # PyTrends
 
+# use case one
+Marketing question about product X in region Y speaks language Z.
+
+You want to know how many times that X is mentioned is mentioned in regions A, B, C 
+
+
+You want to know how many times that X is mentioned is mentioned in language F, G, H
+
+# use case two
+Your client, LittleCo, wants to know if their WidgetWonder is being searched in region A, B, C so they can retarget their ad campaigns.
+
+# use case three
+Your client, SuperCo, wants to know how often their industry, BasketWeaving, is being searched in languages F, G and H.
+
 
 # URL for this repo
 https://github.com/pleabargain/PyTrends
