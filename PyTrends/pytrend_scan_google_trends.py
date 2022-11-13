@@ -6,6 +6,8 @@
 # !pip install seaborn
 
 from time import sleep
+import logging
+
 from tqdm import tqdm
 # note: tqdm is a progress bar library
 # note need to give pytrends a break, otherwise it will get blocked 
@@ -20,7 +22,8 @@ import pandas as pd
 # from pandas.tseries.holiday import USFederalHolidayCalendar as calendar
 import numpy as np
 import datetime as dt
-from datetime import date
+
+from datetime import datetime
 # from statsmodels.tsa.seasonal import seasonal_decompose
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -28,9 +31,25 @@ import warnings
 # time the script run time
 import time
 # set variable for start time of the script
+
 startTime = time.time()
+currentDateAndTime = datetime.now()
 
 
+
+
+# Create and configure logger
+logging.basicConfig(filename="PyTrends/PytrendPerformance.log",
+                    format='%(asctime)s %(message)s',
+                    filemode='w')
+ 
+# Creating an object
+logger = logging.getLogger()
+ 
+# Setting the threshold of logger to DEBUG produces a LOT of information
+# https://docs.python.org/3/howto/logging.html
+# logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 
 
@@ -94,9 +113,9 @@ pd.to_datetime(google_trends['date'])
 google_trends.head()
 
 # set day variable
-today = date.today()
+today =  datetime.now()
 # create a date object
-d1 = today.strftime("%Y_%m_%d")
+d1 = today.strftime("%M__%Y-%m-%d %H:%M")
 
 # seaborn graph settings
 sns.set(rc={"figure.figsize":(14, 6)})
@@ -106,15 +125,17 @@ plt.xlabel('Date', fontsize = 18)
 plt.ylabel(str(kw_list), fontsize = 18)
 plt.xticks(fontsize = 16)
 plt.yticks(fontsize = 16)
-plt.savefig(str(kw_list) +'_' +'_' + d1 +'_'+ "google_trend_plot.png", dpi=360, bbox_inches='tight')
+# save the graph to the file system
+plt.savefig('PyTrends/output/images/'+str(kw_list) +'_' +'_' + d1 +'_'+ "google_trend_plot.png", dpi=360, bbox_inches='tight')
+# notify the user that the graph has been saved
+print('Graph saved to the file system')
+# log the graph save
+logger.info('Graph saved to the file system')
 # uncomment to show the plot
 # plt.show()
 
 
-# today = date.today()
-# # create a date object
-# d1 = today.strftime("%Y_%m_%d")
-# google_trends.to_csv('google_trends_'+ kw_list[0]+'_'+ d1+'.csv')
+
 
 # write search results to csv
 google_trends.to_csv((kw_list[0]) + '_'+ d1+'.csv')

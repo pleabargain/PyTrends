@@ -1,5 +1,17 @@
 # PyTrends
 
+# target
+https://www.google.com/alerts?hl=en-GB#
+
+# inspired by
+https://medium.com/@ismaelaraujo/pytrends-a-python-library-that-you-should-know-24764b384bc2
+
+# why not just pass the request via the URL?
+Google is obfuscating the request!
+Check out what it does to my "sand dunes" query. It counts the number of chars but exposes nothing else.
+![image](https://user-images.githubusercontent.com/640846/201508065-2838e0f0-c5e3-4b37-b40e-7b27a21affb0.png)
+
+
 # URL for this repo
 https://github.com/pleabargain/PyTrends
 
@@ -17,6 +29,8 @@ perro,ES,ES
 * each search term graph has it's own PDF with a branded header and company logo
 
 # DONE
+* added a logger
+* added a minute time stamp to the files to make them easier to find!
 * 60 second time between searches! 
 * set a progress bar in terminal
 * Set a timer in between running individual searches
