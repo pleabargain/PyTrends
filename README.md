@@ -21,13 +21,18 @@ https://drive.google.com/file/d/13wUeT3ZHQvngwHiQMOKoPEb5WjIF8Fmm/view?usp=shari
 
 # TODO
 * pass arguments to the function
-* * key word (kw) csv
+* * google_trends -filename.csv
+
+* fix the output so that kwords is the search term
 * search should use a csv for source e.g.
 term, country(geo), language
 chien,FR,FR
 perro,ES,ES 
 * * see https://pypi.org/project/pytrends/#interest-by-region
+
+# optional
 * each search term graph has it's own PDF with a branded header and company logo
+* * Not certain this is the way to go. 
 
 # DONE
 * added a logger
