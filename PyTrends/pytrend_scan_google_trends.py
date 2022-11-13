@@ -128,24 +128,24 @@ plt.yticks(fontsize = 16)
 # save the graph to the file system
 plt.savefig('PyTrends/output/images/'+str(kw_list) +'_' +'_' + d1 +'_'+ "google_trend_plot.png", dpi=360, bbox_inches='tight')
 # notify the user that the graph has been saved
-print('Graph saved to the file system')
+print(str(kw_list) + 'Graph saved to the file system')
 # log the graph save
-logger.info('Graph saved to the file system')
+logger.info(str(kw_list) + 'Graph saved to the file system')
 # uncomment to show the plot
 # plt.show()
 
 
-
-
 # write search results to csv
-google_trends.to_csv((kw_list[0]) + '_'+ d1+'.csv')
-
+google_trends.to_csv('PyTrends/output/data/' + (kw_list[0]) + '_'+ d1+'.csv')
+logger.info('PyTrends/output/data/' + (kw_list[0]) + '_'+ d1+'.csv')
 
 # print user script is complete
 print('User script is complete')
 
 # print location of the files
-print('Google Trends file saved to: ' + str(kw_list[0]) + '_'+ d1+'.csv')
+# print("""Google Trends file saved to:""" PyTrends/output/data/ + str(kw_list[0]) + '_'+ d1 +""".csv""")
+#log the save location
+# logger.info("""Google Trends file saved to:""" PyTrends/output/data/ + str(kw_list[0]) + '_'+ d1 +""".csv""")
 executionTime = (time.time() - startTime)
 print('Execution time in seconds: ' + str(executionTime))
 

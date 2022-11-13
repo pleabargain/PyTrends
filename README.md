@@ -1,5 +1,9 @@
 # PyTrends
 
+
+# URL for this repo
+https://github.com/pleabargain/PyTrends
+
 # target
 https://www.google.com/alerts?hl=en-GB#
 
@@ -11,9 +15,6 @@ Google is obfuscating the request!
 Check out what it does to my "sand dunes" query. It counts the number of chars but exposes nothing else.
 ![image](https://user-images.githubusercontent.com/640846/201508065-2838e0f0-c5e3-4b37-b40e-7b27a21affb0.png)
 
-
-# URL for this repo
-https://github.com/pleabargain/PyTrends
 
 # graph
 https://drive.google.com/file/d/13wUeT3ZHQvngwHiQMOKoPEb5WjIF8Fmm/view?usp=sharing
