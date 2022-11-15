@@ -25,5 +25,5 @@ pytrends.interest_by_region(resolution='COUNTRY',
                             inc_geo_code=False)
 
 df = pytrends.interest_by_region()
-print(f"{var_keyword_list} interest by region: {df.size}")
+print(f"{var_keyword_list} 'travel' interest by region: {df.size}")
 # df.head()
