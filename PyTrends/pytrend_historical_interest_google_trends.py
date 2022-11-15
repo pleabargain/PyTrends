@@ -92,7 +92,7 @@ for kw in kw_list:
     day_end=31
     hour_end=0
 
-    # Run PyTrends
+    # Run historical interest PyTrends 
     google_trends = pytrends.get_historical_interest((kw,),
                                     year_start = year_start, 
                                     month_start = month_start, 
@@ -105,6 +105,7 @@ for kw in kw_list:
                                     cat=0, 
                                     geo=geo, 
                                     gprop='', 
+                                    # set to 60 once the script is working
                                     sleep=0,
                                     frequency=frequency)
 
