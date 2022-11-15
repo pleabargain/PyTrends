@@ -57,6 +57,12 @@ term, country(geo), language
 chien,FR,FR
 perro,ES,ES 
 * * see https://pypi.org/project/pytrends/#interest-by-region
+* use the sleep param in the module
+
+```sleep
+
+If you are rate-limited by Google, you should set this parameter to something (i.e. 60) to space off each API call.
+```
 
 # optional
 * each search term graph has it's own PDF with a branded header and company logo
