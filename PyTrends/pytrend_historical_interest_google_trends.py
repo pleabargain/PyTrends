@@ -39,7 +39,7 @@ currentDateAndTime = datetime.now()
 
 
 # Create and configure logger
-logging.basicConfig(filename="PyTrends/PytrendPerformance.log",
+logging.basicConfig(filename="PytrendPerformance.log",
                     format='%(asctime)s %(message)s',
                     filemode='w')
  
@@ -60,7 +60,7 @@ pd.set_option('display.max_rows', None)
 pytrends = TrendReq(hl='en_US', tz=360)
 
 # open csv file with the keywords
-read_csv_file = pd.read_csv(r'C:/Users/denni/OneDrive/Documents/PyTrends/PyTrends/search_terms.csv')
+read_csv_file = pd.read_csv('search_terms.csv')
 # loop through the csv file and get the first row of data
 kw_list=[]
 for i in range(len(read_csv_file)):
@@ -130,14 +130,22 @@ for kw in kw_list:
     # seaborn graph settings
     sns.set()
     sns.set(rc={"figure.figsize":(14, 6)})
-    sns.lineplot(data=google_trends, x='date', y= kw)
-
+    plt.figure()
+    plot = sns.lineplot(data=google_trends, x='date', y= kw)
+    
     plt.xlabel('Date', fontsize = 18)
     plt.ylabel(str(kw), fontsize = 18)
     plt.xticks(fontsize = 16)
     plt.yticks(fontsize = 16)
+    ##plot.xlabel('Date', fontsize = 18)
+    ##plot.ylabel(str(kw), fontsize = 18)
+    ##plot.xticks(fontsize = 16)
+    ##plot.yticks(fontsize = 16)
+    
     # save the graph to the file system
-    plt.savefig('C:/Users/denni/OneDrive/Documents/PyTrends/PyTrends/output/images/'+str(kw) +'_' + d1 +'_'+ 'google_trend_plot.png', dpi=360, bbox_inches='tight')
+    plt.savefig('output/images/'+str(kw) +'_' + d1 +'_'+ 'google_trend_plot.png', dpi=360, bbox_inches='tight')
+    #plot.fig.savefig('output/images/'+str(kw) +'_' + d1 +'_'+ 'google_trend_plot.png', dpi=360, bbox_inches='tight')
+    #plot.fig.clf() # this clears the figure
     # notify the user that the graph has been saved
     print(str(kw) + 'Graph saved to the file system')
     # log the graph save
@@ -147,8 +155,8 @@ for kw in kw_list:
 
 
     # write search results to csv
-    google_trends.to_csv('C:/Users/denni/OneDrive/Documents/PyTrends/PyTrends/output/data/' + kw + '_'+ d1 +'.csv')
-    logger.info('C:/Users/denni/OneDrive/Documents/PyTrends/PyTrends/' + kw + '_'+ d1 +'.log')
+    google_trends.to_csv('output/data/' + kw + '_'+ d1 +'.csv')
+    logger.info('' + kw + '_'+ d1 +'.log')
 
 # print user script is complete
 print('User script is complete')
