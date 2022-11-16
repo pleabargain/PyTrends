@@ -48,6 +48,18 @@ Check out what it does to my "sand dunes" query. It counts the number of chars b
 https://drive.google.com/file/d/13wUeT3ZHQvngwHiQMOKoPEb5WjIF8Fmm/view?usp=sharing
 
 # TODO
+* create stand alone functions and pass key words via the command line 
+``` 
+
+if len(sys.argv) >= 2:
+    name = sys.argv[1]
+  else:
+    name = 'World'
+  print ('Hello', name)
+
+```
+
+* get a list of all pn e.g. ```df = pytrend.trending_searches(pn='czech_republic')```
 * fix graphs (still adding multiple search terms (kwlist) to same graph!)
 * create a function that handles the graph generation
 * pass arguments to the function
