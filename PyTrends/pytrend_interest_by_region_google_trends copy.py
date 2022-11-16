@@ -1,5 +1,7 @@
 # Import pandas and pytrends using below lines
 import pandas as pd
+import pytrends
+
 from pytrends.request import TrendReq
 # pytrends = TrendReq(hl='en-US', tz=91, timeout=(10,25),retries=2, backoff_factor=0.1, requests_args={'verify':False})
 

@@ -48,6 +48,8 @@ Check out what it does to my "sand dunes" query. It counts the number of chars b
 https://drive.google.com/file/d/13wUeT3ZHQvngwHiQMOKoPEb5WjIF8Fmm/view?usp=sharing
 
 # TODO
+* fix graphs (still adding multiple search terms (kwlist) to same graph!)
+* create a function that handles the graph generation
 * pass arguments to the function
 * * google_trends -filename.csv
 
