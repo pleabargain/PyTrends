@@ -7,6 +7,6 @@ import pandas as pd
 from pytrends.request import TrendReq
 pytrend = TrendReq()
 
-#get today's treniding topics
+#get today's trending topics
 trendingtoday = pytrend.today_searches(pn='PL')
 trendingtoday.head(20)

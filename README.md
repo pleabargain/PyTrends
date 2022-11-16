@@ -1,5 +1,10 @@
 # PyTrends
 
+# https://trends.google.com/trends/explore?cat=1392&geo=AT-9&q=Thailand,Seychellen,Maldiven
+
+# https://trends.google.com/trends/explore?cat=1392&date=today%205-y&geo=AT-9&q=Thailand,Seychellen,Maldiven
+
+
 # use case one
 Marketing question about product X in region Y speaks language Z.
 
