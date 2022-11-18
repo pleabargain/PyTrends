@@ -52,7 +52,6 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 
-
 # Notebook settings
 warnings.filterwarnings("ignore")
 pd.set_option('display.max_rows', None)
@@ -62,18 +61,22 @@ pytrends = TrendReq(hl='en_US', tz=360)
 # open csv file with the keywords
 read_csv_file = pd.read_csv(r'C:/Users/denni/OneDrive/Documents/PyTrends/PyTrends/search_terms.csv')
 # loop through the csv file and get the first row of data
+
+# TODO add a check to see if the csv file is empty
+# TODO load each row of the csv as variables that can be used in the script
+# header search_terms,region,language
+
 kw_list=[]
 for i in range(len(read_csv_file)):
-    print(read_csv_file.loc[i, "search_terms"])
-    kw_list.append(read_csv_file.loc[i, "search_terms"])
+    print(read_csv_file.loc[i, "search_terms", ])
+    kw_list.append(read_csv_file.loc[i, "search_terms", ])
 
 #done pass the search terms to the kw_list variable
 print(kw_list)
 
 for kw in kw_list:
     print("now processing: ", kw)        
-    # TODO I can't change this value! If I do I get an error!
-    # kw_list = ['Intercontinental Phuket']
+    
 
     frequency = 'daily' # must be  hourly or daily
     # for whatever reason, I can't get a different Geo to work e.g. CZ
@@ -159,5 +162,3 @@ print('User script is complete')
 # logger.info("""Google Trends file saved to:""" PyTrends/output/data/ + str(kw_list[0]) + '_'+ d1 +""".csv""")
 executionTime = (time.time() - startTime)
 print('Execution time in seconds: ' + str(executionTime))
-
-# google_trends

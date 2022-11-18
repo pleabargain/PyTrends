@@ -1,8 +1,8 @@
 # Import pandas and pytrends using below lines
 import pandas as pd
 import pytrends
-
 from pytrends.request import TrendReq
+
 # pytrends = TrendReq(hl='en-US', tz=91, timeout=(10,25),retries=2, backoff_factor=0.1, requests_args={'verify':False})
 
 geo = 'CZ'
@@ -11,7 +11,7 @@ geo = 'CZ'
 
 # keyword_list = ['cestování po Maledivách', ]
 
-keyword_list = ['cestování', ]
+keyword_list = ['cestování', "Dubai" ]
 # convert to string
 var_keyword_list = [str(item) for item in keyword_list]
 
@@ -28,4 +28,4 @@ pytrends.interest_by_region(resolution='COUNTRY',
 
 df = pytrends.interest_by_region()
 print(f"{var_keyword_list} 'travel' interest by region: {df.size}")
-# df.head()
+print(df.head())

@@ -1,8 +1,14 @@
 # PyTrends
 
+# https://pypi.org/project/pytrends/
+
 # https://trends.google.com/trends/explore?cat=1392&geo=AT-9&q=Thailand,Seychellen,Maldiven
 
 # https://trends.google.com/trends/explore?cat=1392&date=today%205-y&geo=AT-9&q=Thailand,Seychellen,Maldiven
+
+# resources
+https://www.premiumleads.com/en/blog/seo/how-to-get-google-trends-data-with-pytrends-and-python/
+
 
 
 # use case one
@@ -39,6 +45,20 @@ https://github.com/pleabargain/PyTrends
 
 # target
 https://www.google.com/alerts?hl=en-GB#
+
+# categories or cat
+* 67 = travel
+* 179 = hotels and accomodations
+* 1074 = beaches and islands
+* 696 = luxury goods
+* 1005 = ecotourism
+
+# CZ
+* cestovní kancelář = travel agency
+
+# seychelles = %2Fm%2F06sw9
+* https://trends.google.com/trends/explore?geo=CZ&q=%2Fm%2F06sw9
+
 
 # inspired by
 https://medium.com/@ismaelaraujo/pytrends-a-python-library-that-you-should-know-24764b384bc2
