@@ -128,3 +128,19 @@ dmypy.json
 # Pyre type checker
 .pyre/
 python_questions.py
+PyTrends/output/data/chien_56__2022_11_18_16_56.csv
+PyTrends/output/data/chien_56__2022_11_18_17_56.csv
+PyTrends/output/data/dog_56__2022_11_18_16_56.csv
+PyTrends/output/data/dog_57__2022_11_18_17_57.csv
+PyTrends/output/data/hund_56__2022_11_18_16_56.csv
+PyTrends/output/data/hund_57__2022_11_18_17_57.csv
+PyTrends/output/data/perro_55__2022_11_18_16_55.csv
+PyTrends/output/data/perro_56__2022_11_18_17_56.csv
+PyTrends/output/images/chien_56__2022_11_18_16_56_google_trend_plot.png
+PyTrends/output/images/chien_56__2022_11_18_17_56_google_trend_plot.png
+PyTrends/output/images/dog_56__2022_11_18_16_56_google_trend_plot.png
+PyTrends/output/images/dog_57__2022_11_18_17_57_google_trend_plot.png
+PyTrends/output/images/hund_56__2022_11_18_16_56_google_trend_plot.png
+PyTrends/output/images/hund_57__2022_11_18_17_57_google_trend_plot.png
+PyTrends/output/images/perro_55__2022_11_18_16_55_google_trend_plot.png
+PyTrends/output/images/perro_56__2022_11_18_17_56_google_trend_plot.png
