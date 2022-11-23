@@ -1,4 +1,5 @@
 # PyTrends
+This is for PyTrends! NOT pytrend (that is a sadder unloved brother)
 
 # https://pypi.org/project/pytrends/
 
