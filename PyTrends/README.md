@@ -10,6 +10,10 @@ This is for PyTrends! NOT pytrend (that is a sadder unloved brother)
 # resources
 https://www.premiumleads.com/en/blog/seo/how-to-get-google-trends-data-with-pytrends-and-python/
 
+# notes
+429 = google doesn't like you hitting their server so often
+
+```The HTTP 429 Too Many Requests response status code indicates the user has sent too many requests in a given amount of time ("rate limiting"). A Retry-After header might be included to this response indicating how long to wait before making a new request.```
 
 
 # use case one
