@@ -1,5 +1,9 @@
 # all queries
 #import the libraries
+import sys
+import date_time_helper_func as dthf
+#print(dthf.time_stamp_helper())
+
 import pandas as pd                        
 from pytrends.request import TrendReq
 # from google.colab import files
@@ -47,4 +51,4 @@ allqueries.rename({'query': 'top query', 'value': 'top query value', 'query.1': 
 allqueries.head(50)
 
 # write dataframe to csv
-allqueries.to_csv('allqueries.csv', index=False)
+allqueries.to_csv(dthf.time_stamp_helper() , 'allqueries.csv', index=False)
